@@ -74,7 +74,7 @@ public func presentAlert(title: String, subTitle: String, primaryAction: UIAlert
  *   - primaryHandler: The closure to be executed when the primary button is tapped
  *   - secondaryHandler: The closure to be executed when the secondary button is tapped
  */
-public func presentAlert(title: String, msg: String, primaryText: String? = nil, secondaryText: String? = nil, primaryHandler: EmptyClosure? = nil, secondaryHandler: EmptyClosure? = nil) {
+public func presentAlert(title: String, msg: String, primaryText: String? = nil, secondaryText: String? = nil, primaryHandler: (() -> Void)? = nil, secondaryHandler: (() -> Void)? = nil) {
    let primaryUIAction: UIAlertAction? = {
       if let action = primaryHandler, let text = primaryText {
          .init(

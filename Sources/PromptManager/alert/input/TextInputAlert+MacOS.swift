@@ -35,7 +35,7 @@ import AppKit
  *   }
  *   ```
  */
-public func showAlertWithTextFields(title: String, message: String, primaryTextPlaceholder: String? = "", secondaryTextPlaceholder: String? = "", primaryButtonText: String = "OK", secondaryButtonText: String = "Cancel", isSecure: Bool = false, onComplete: OnTextInputComplete? = nil) {
+public func showAlertWithTextFields(title: String, message: String, primaryTextPlaceholder: String? = "", secondaryTextPlaceholder: String? = "", primaryButtonText: String = "OK", secondaryButtonText: String = "Cancel", isSecure: Bool = false, primaryInputTextFieldID: String = "primaryInputTextField", secondaryInputTextFieldID: String = "secondaryInputTextField", onComplete: OnTextInputComplete? = nil) {
    let alert = NSAlert()  // Initializes an NSAlert instance
    alert.messageText = title  // Sets the title of the alert
    alert.informativeText = message  // Sets the message of the alert
@@ -52,7 +52,7 @@ public func showAlertWithTextFields(title: String, message: String, primaryTextP
       guard let primaryTextPlaceholder: String = primaryTextPlaceholder else { return nil }
       let primaryTextField = NSTextField(frame: NSRect(x: 0, y: 0, width: 200, height: 24))  // Initializes an NSTextField instance with a frame of 200x24 pixels
       primaryTextField.placeholderString = primaryTextPlaceholder
-      primaryTextField.setAccessibilityIdentifier(InterfaceID.primaryInputTextField) // Sets the accessibility identifier of the primary text field
+      primaryTextField.setAccessibilityIdentifier(primaryInputTextFieldID) // Sets the accessibility identifier of the primary text field
       return primaryTextField
    }()
    if let primaryTextField = primaryTextField {
@@ -63,7 +63,7 @@ public func showAlertWithTextFields(title: String, message: String, primaryTextP
       guard let secondaryTextPlaceholder: String = secondaryTextPlaceholder else { return nil }
       let secondaryTextField = NSTextField(frame: NSRect(x: 0, y: 0, width: 200, height: 24))  // Initializes an NSTextField instance with a frame of 200x24 pixels
       secondaryTextField.placeholderString = secondaryTextPlaceholder  // Sets the placeholder string of the secondary text field
-      secondaryTextField.setAccessibilityIdentifier(InterfaceID.secondaryInputTextField)  // Sets the accessibility identifier of the secondary text field
+      secondaryTextField.setAccessibilityIdentifier(secondaryInputTextFieldID)  // Sets the accessibility identifier of the secondary text field
       return secondaryTextField
    }()
    if let secondaryTextField = secondaryTextField {

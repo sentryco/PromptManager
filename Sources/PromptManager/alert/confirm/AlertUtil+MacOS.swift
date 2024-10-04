@@ -20,7 +20,7 @@ import SwiftUI
  *   - button2Handler: The closure to be executed when the secondary button is clicked.
  */
 #if os(macOS)
-public func showAlert(title: String, message: String, primaryButtonText: String?, secondaryButtonText: String?, button1Handler: EmptyClosure?, button2Handler: EmptyClosure?) {
+public func showAlert(title: String, message: String, primaryButtonText: String?, secondaryButtonText: String?, button1Handler: (() -> Void)?, button2Handler: (() -> Void)?) {
    let alert = NSAlert() // Initializes an NSAlert instance
    alert.messageText = title  // Sets the title of the alert
    alert.informativeText = message // if let message = message {  }

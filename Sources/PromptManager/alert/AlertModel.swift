@@ -1,4 +1,7 @@
 import SwiftUI
+#if os(iOS)
+import UIKit
+#endif
 /**
  * - Note: Alternative name: `DetailAlertModel`
  * - Description: This struct is used to create a custom alert in SwiftUI. It takes a title, a message, a primary button text, and an optional action closure as parameters. The action closure is called when the primary button is tapped.
@@ -25,7 +28,7 @@ public struct AlertModel {
     * The action to perform when the primary button is tapped.
     * - Description: This closure is executed when the primary button of the alert is pressed. It can be used to perform any necessary tasks in response to the user's interaction with the alert.
     */
-   let action: EmptyClosure?
+   let action: (() -> Void)?
    /**
     * - Parameters:
     *   - title: Alert title
@@ -33,7 +36,7 @@ public struct AlertModel {
     *   - primary: Button text
     *   - action:  Button action
     */
-   public init(title: String, message: String, primary: String, action: EmptyClosure?) {
+   public init(title: String, message: String, primary: String, action: (() -> Void)?) {
       self.title = title
       self.message = message
       self.primary = primary
@@ -59,6 +62,13 @@ public struct AlertModel {
 public func promptPopup(view: some View, alertModel: AlertModel?, isPresenting: Binding<Bool>) -> some View {
    // let _ = { Swift.print("promptActionSheet() - alertModel.title: \(String(describing: alertModel?.title))") }
    if let alertModel: AlertModel = alertModel { // ⚠️️ We can't use guard, because viewbuilder etc
+      let isPhoneDevice: Bool = {
+         #if os(iOS)
+         return UIDevice.current.userInterfaceIdiom == .phone
+         #else
+         return false
+         #endif
+      }()
       if isPhoneDevice {
          // let _ = { Swift.print("promptActionSheet() - phone alert") }() // ⚠️️ debug
          #if os(iOS) // Needed because some of the code bellow is not available for macOS

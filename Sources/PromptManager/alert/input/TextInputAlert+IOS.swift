@@ -88,13 +88,13 @@ public func showAttributedAlertWithTextFields(attrTitle: NSAttributedString, att
  *   - onComplete: The closure to be called when the primary button is tapped. 
  * - Returns: The configured UIAlertController instance. 
  */
-fileprivate func configAlert(alertController: UIAlertController, primaryTextPlaceholder: String? = "", secondaryTextPlaceholder: String? = "", primaryButtonText: String = "OK", secondaryButtonText: String = "Cancel", isSecure: Bool = false, onComplete: OnTextInputComplete? = nil) -> UIAlertController {
+fileprivate func configAlert(alertController: UIAlertController, primaryTextPlaceholder: String? = "", secondaryTextPlaceholder: String? = "", primaryButtonText: String = "OK", secondaryButtonText: String = "Cancel", isSecure: Bool = false, primaryInputTextFieldID: String = "primaryInputTextField", secondaryInputTextFieldID: String = "secondaryInputTextField", onComplete: OnTextInputComplete? = nil) -> UIAlertController {
    // First input-text-field
    if let primaryTextPlaceholder = primaryTextPlaceholder {
       alertController.addTextField { textField in // Adds a text field to the alert controller
          textField.placeholder = primaryTextPlaceholder // Sets the placeholder text for the text field
          textField.isSecureTextEntry = isSecure // Determines if the text field should hide the text being entered
-         textField.accessibilityIdentifier = InterfaceID.primaryInputTextField // Sets the accessibility identifier for the text field
+         textField.accessibilityIdentifier = primaryInputTextFieldID // Sets the accessibility identifier for the text field
       }
    }
    // Second intput-text-field
@@ -102,7 +102,7 @@ fileprivate func configAlert(alertController: UIAlertController, primaryTextPlac
       alertController.addTextField { textField in // Adds a text field to the alert controller for secondary input
          textField.placeholder = secondaryTextPlaceholder // Sets the placeholder text for the secondary text field
          textField.isSecureTextEntry = isSecure // Determines if the secondary text field should hide the text being entered
-         textField.accessibilityIdentifier = InterfaceID.secondaryInputTextField // Sets the accessibility identifier for the secondary text field
+         textField.accessibilityIdentifier = secondaryInputTextFieldID // Sets the accessibility identifier for the secondary text field
       }
    }
    // Add actions

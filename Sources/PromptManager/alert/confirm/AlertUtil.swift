@@ -13,7 +13,7 @@ import SwiftUI
  *   - primaryHandler: The closure to be executed when the primary button is tapped
  *   - secondaryHandler: The closure to be executed when the secondary button is tapped
  */
-public func promptAlert(title: String, msg: String, primaryText: String? = nil, secondaryText: String? = nil, primaryHandler: EmptyClosure? = nil, secondaryHandler: EmptyClosure? = nil) {
+public func promptAlert(title: String, msg: String, primaryText: String? = nil, secondaryText: String? = nil, primaryHandler: (() -> Void)? = nil, secondaryHandler: (() -> Void)? = nil) {
    #if os(iOS)
    presentAlert( // Calls the presentAlert function to display an alert on iOS devices
       title: title, // Sets the title of the alert

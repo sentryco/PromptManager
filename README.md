@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/PromptManager/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/PromptManager/actions/workflows/Tests.yml)
+
 # PromptManager
 
 > Alert and sheet tools for macOS and iOS

@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/PromptManager/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/PromptManager/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/60b7748c-3675-4f19-b779-c2a675aed3c1)](https://codebeat.co/projects/github-com-sentryco-promptmanager-main)
 
 # PromptManager
 

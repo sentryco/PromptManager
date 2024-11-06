@@ -10,13 +10,13 @@ let package = Package(
     products: [
         .library(
             name: "PromptManager",
-            targets: ["PromptManager"]),
+            targets: ["PromptManager"])
     ],
     targets: [
         .target(
             name: "PromptManager"),
         .testTarget(
             name: "PromptManagerTests",
-            dependencies: ["PromptManager"]),
+            dependencies: ["PromptManager"])
     ]
 )
